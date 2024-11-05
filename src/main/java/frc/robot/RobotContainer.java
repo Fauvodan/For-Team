@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.Commands.Auto.Forward2Sec;
 import frc.robot.Commands.Teleop.JoystickDrive;
 import frc.robot.Subsystems.DrivetrainSub;
 
@@ -30,6 +31,12 @@ public class RobotContainer {
    * The command used to control the robot during Teleop period
    */
   private final JoystickDrive joystickDrive = new JoystickDrive(drivetrainSub);
+
+  //We'll be using this command in autonomous, so no triggers need to be assigned.
+  /**
+   * Command used to drive the robot forward for 2 seconds.
+   */
+  private final Forward2Sec forward2Sec = new Forward2Sec(drivetrainSub);
 
   //Triggers
   //Triggers should be self-explanatory.  They're how you trigger an action.

@@ -46,6 +46,7 @@ public class Forward2Sec extends Command {
         return timer.get() > 2.0;
     }
 
+    //When the command ends, stops motors
     @Override
     public void end(boolean interrupted) {
         drivetrainSub.stopMotors();
