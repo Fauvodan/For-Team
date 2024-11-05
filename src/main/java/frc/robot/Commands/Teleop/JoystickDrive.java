@@ -43,8 +43,12 @@ public class JoystickDrive extends Command {
          * Then we plug them into the method from the DrivetrainSub subsystem
          * 
          */
+
+         //You can make these values negative to ensure convention - positive forward and CCW
         double transV = RobotContainer.joy.getY();
         double rotV = RobotContainer.joy.getZ();
+
+        
         drivetrainSub.arcadeDrive(rotV, transV);
     }
 }
