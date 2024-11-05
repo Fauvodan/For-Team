@@ -68,7 +68,17 @@ public class DrivetrainSub extends SubsystemBase {
          * The velocity is the translational velocity, while the rotation is the rotational velocity
         */
         roboDrive.arcadeDrive(v, omega);
-}
+    }
+
+    /**
+     * Stops each motor
+     */
+    public void stopMotors() {
+        fLeft.stopMotor();
+        fRight.stopMotor();
+        bLeft.stopMotor();
+        bRight.stopMotor();
+    }
 
     /*
      * The following methods are not really necessary, per se, but you lose nothing through adding them
