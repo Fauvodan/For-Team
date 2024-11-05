@@ -48,7 +48,16 @@ public class JoystickDrive extends Command {
         double transV = RobotContainer.joy.getY();
         double rotV = RobotContainer.joy.getZ();
 
-        
+
         drivetrainSub.arcadeDrive(rotV, transV);
+    }
+
+    /*
+     * Returns if the command is finished
+     * As this is a default command, you don't want it to finish, so return false
+     */
+    @Override
+    public boolean isFinished() {
+        return false;
     }
 }

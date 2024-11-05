@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Subsystems.DrivetrainSub;
 
 //Should drive the robot forward for 2 seconds, assuming other  parameters are set up properly
+//See JoystickDrive.java for more in-depth explanations of command file structure
 public class Forward2Sec extends Command {
     
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
