@@ -7,6 +7,7 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.DriveMotorConstants;
 
 //Extend every subsystem class with SubsystemBase
 public class DrivetrainSub extends SubsystemBase {
@@ -19,10 +20,10 @@ public class DrivetrainSub extends SubsystemBase {
      * You'll set this ID in another software
      * MotorType includes kBrushed and kBrushless.  This should be self-explanatory.
      */
-    public static CANSparkMax fLeft = new CANSparkMax(0, MotorType.kBrushed);
-    public static CANSparkMax fRight = new CANSparkMax(1, MotorType.kBrushed);
-    public static CANSparkMax bLeft = new CANSparkMax(2, MotorType.kBrushed);
-    public static CANSparkMax bRight = new CANSparkMax(3, MotorType.kBrushed);
+    public static CANSparkMax fLeft = new CANSparkMax(DriveMotorConstants.fl, MotorType.kBrushed);
+    public static CANSparkMax fRight = new CANSparkMax(DriveMotorConstants.fr, MotorType.kBrushed);
+    public static CANSparkMax bLeft = new CANSparkMax(DriveMotorConstants.bl, MotorType.kBrushed);
+    public static CANSparkMax bRight = new CANSparkMax(DriveMotorConstants.br, MotorType.kBrushed);
 
     //Initializing a drivetrain.  This code is assuming you're using a tank drivebase
     /*
