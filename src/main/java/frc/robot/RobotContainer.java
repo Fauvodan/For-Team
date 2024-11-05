@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Commands.Auto.Forward2Sec;
 import frc.robot.Commands.Teleop.JoystickDrive;
+import frc.robot.Constants.OperatorConstants;
 import frc.robot.Subsystems.DrivetrainSub;
 
 public class RobotContainer {
@@ -56,7 +57,7 @@ public class RobotContainer {
   /**
    * The joystick used to control the robot.  Can be replaced with CommandXboxController or CommandPS4Controller.
    */
-  public static CommandJoystick joy = new CommandJoystick(0);
+  public static CommandJoystick joy = new CommandJoystick(OperatorConstants.kDriverCPort);
 
   public RobotContainer() {
     configureBindings();
