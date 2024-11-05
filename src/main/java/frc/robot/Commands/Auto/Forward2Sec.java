@@ -48,7 +48,7 @@ public class Forward2Sec extends Command {
 
     @Override
     public void end(boolean interrupted) {
-        
+        drivetrainSub.stopMotors();
     }
 
 }
