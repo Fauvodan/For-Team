@@ -2,6 +2,7 @@ package frc.robot;
 
 //It's good practice to keep all your constants in one file for easy access.
 //See what I've used as constants for an example.  Also check the old code on Github for how I used encoders.
+//I try to keep measurements in metric, but you don't have to. Especially when everything is given to us in imperial.
 public class Constants {
     
     //This is where you would put the controller ports.  Check the driver station for the number.
@@ -34,5 +35,13 @@ public class Constants {
          * The CAN ID for the back right motor
          */
         public static final int br = 3;
+    }
+
+    /*
+     * Outside constants
+     * These are physical constants, so if they change, something is entirely wrong
+     */
+    public static class OutConstants {
+        double grav = 9.8067;
     }
 }
