@@ -24,6 +24,31 @@ public class Forward2Sec extends Command {
     @Override
     public void initialize() {
         //Starts the timer
+        timer.restart();
+        /*
+         * I like to have the debug message at the end of the method
+         * The computer "reads" the code top to bottom, so if the timer does not start, you won't see the message
+         * You can also place it on the dashboard, but talk to me about that
+         */
+        System.out.println("Forward 2s");
+    }
+
+    @Override
+    public void execute() {
+        //Should drive forward at half-speed
+        //Remember, positive is forward
+        drivetrainSub.arcadeDrive(0, 0.5);
+    }
+
+    //Stops the command when the timer is greater than 2.0 seconds
+    @Override
+    public boolean isFinished() {
+        return timer.get() > 2.0;
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+        
     }
 
 }
