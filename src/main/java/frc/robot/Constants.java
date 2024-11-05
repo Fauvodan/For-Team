@@ -42,6 +42,6 @@ public class Constants {
      * These are physical constants, so if they change, something is entirely wrong
      */
     public static class OutConstants {
-        double grav = 9.8067;
+        public static final double grav = 9.8067;
     }
 }
