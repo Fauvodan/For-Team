@@ -4,10 +4,13 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.Commands.Auto.Backward2Sec;
 import frc.robot.Commands.Auto.Forward2Sec;
 import frc.robot.Commands.Teleop.JoystickDrive;
 import frc.robot.Constants.OperatorConstants;
@@ -33,11 +36,16 @@ public class RobotContainer {
    */
   private final JoystickDrive joystickDrive = new JoystickDrive(drivetrainSub);
 
-  //We'll be using this command in autonomous, so no triggers need to be assigned.
+  //We'll be using these commands in autonomous, so no triggers need to be assigned.
   /**
    * Command used to drive the robot forward for 2 seconds.
    */
   private final Forward2Sec forward2Sec = new Forward2Sec(drivetrainSub);
+
+  /**
+   * Command used to drive the robot backward for 2 seconds.
+   */
+  private final Backward2Sec backward2Sec = new Backward2Sec(drivetrainSub);
 
   //Triggers
   //Triggers should be self-explanatory.  They're how you trigger an action.
@@ -59,8 +67,21 @@ public class RobotContainer {
    */
   public static CommandJoystick joy = new CommandJoystick(OperatorConstants.kDriverCPort);
 
+  /**
+   * Chooser used to choose auto commands.  Will be stored in a switch statement.
+   */
+  SendableChooser<Command> chooser = new SendableChooser<>();
+
   public RobotContainer() {
     configureBindings();
+    //Sets the default chooser option to forward for 2 seconds
+    chooser.setDefaultOption("Forward", forward2Sec);
+
+    //Adds the backwards for 2 seconds option to the chooser
+    chooser.addOption("Back", backward2Sec);
+
+    //Puts the chooser on the dashboard
+    SmartDashboard.putData(chooser);
   }
 
   private void configureBindings() {
@@ -73,7 +94,8 @@ public class RobotContainer {
     coastTrigger.onTrue(drivetrainSub.setToCoast());
   }
 
+  //Returns the autonomous command.  Here, it's whatever you selected.
   public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
+    return chooser.getSelected();
   }
 }
