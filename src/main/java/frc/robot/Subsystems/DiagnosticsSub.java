@@ -1,6 +1,7 @@
 package frc.robot.Subsystems;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.OutConstants;
@@ -46,11 +47,20 @@ public class DiagnosticsSub extends SubsystemBase {
         return accel.getZ() * OutConstants.grav;
      }
 
+     /**
+      * Get the time
+      * @return The match time from the FMS in seconds.
+      */
+     public double fgaTime() {
+        return DriverStation.getMatchTime();
+     }
+
     //Runs periodically while the robot is running
     public void periodic() {
         //Puts each acceleration value on the dashboard
         SmartDashboard.putNumber("X Acceleration", xaccel());
         SmartDashboard.putNumber("Y Acceleration", yaccel());
         SmartDashboard.putNumber("Z Acceleration", zaccel());
+        SmartDashboard.putNumber("FMS Time", fgaTime());
     }
 }
