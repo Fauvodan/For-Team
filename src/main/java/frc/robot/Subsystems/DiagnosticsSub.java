@@ -61,6 +61,7 @@ public class DiagnosticsSub extends SubsystemBase {
         SmartDashboard.putNumber("X Acceleration", xaccel());
         SmartDashboard.putNumber("Y Acceleration", yaccel());
         SmartDashboard.putNumber("Z Acceleration", zaccel());
+        //Puts the FMS Time on the dashboard
         SmartDashboard.putNumber("FMS Time", fgaTime());
     }
 }
