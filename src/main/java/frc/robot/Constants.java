@@ -37,11 +37,61 @@ public class Constants {
         public static final int br = 3;
     }
 
-    /*
+    /**
      * Outside constants
      * These are physical constants, so if they change, something is entirely wrong
      */
     public static class OutConstants {
         public static final double grav = 9.8067;
+    }
+
+    /**
+     * Constants used for the encoders.  If you don't connect the encoders, the code should still work.  The measurements just won't show up.
+     */
+    public static class EncoderConstants {
+        /**
+         * The resolution of the encoder.  This is assuming you're using the REV Throughbore encoder.
+         */
+        public static final double encoderResolution = 2048.0;
+
+        /**
+         * The wheel diameter in inches.
+         */
+        public static final double wheeldiameterIn = 6.0;
+
+        /**
+         * The wheel circumference in inches
+         */
+        public static final double wheelCircumferenceIn = wheeldiameterIn * Math.PI;
+
+        /**
+         * The distance per encoder pulse in inches
+         */
+        public static final double distancePerPulseIn = wheelCircumferenceIn / encoderResolution;
+
+    }
+
+    /**
+     * A class just for formulae
+     */
+    public static class formulae {
+
+        /**
+         * Formula for converting inches to metres
+         * @param in The value in inches
+         * @return The value in metres
+         */
+        public double inchesToM(double in) {
+            return in * 2.54 / 100;
+        }
+
+        /**
+         * Formula for converting metres to inches
+         * @param m The value in metres
+         * @return The value in inches
+         */
+        public double mToInches(double m) {
+            return (m * 100) / 2.54;
+        }
     }
 }
