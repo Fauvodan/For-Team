@@ -4,10 +4,12 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveMotorConstants;
+import frc.robot.Constants.EncoderConstants;
 
 //Extend every subsystem class with SubsystemBase
 public class DrivetrainSub extends SubsystemBase {
@@ -24,6 +26,8 @@ public class DrivetrainSub extends SubsystemBase {
     public static CANSparkMax fRight = new CANSparkMax(DriveMotorConstants.fr, MotorType.kBrushed);
     public static CANSparkMax bLeft = new CANSparkMax(DriveMotorConstants.bl, MotorType.kBrushed);
     public static CANSparkMax bRight = new CANSparkMax(DriveMotorConstants.br, MotorType.kBrushed);
+
+    
 
     //Initializing a drivetrain.  This code is assuming you're using a tank drivebase
     /*

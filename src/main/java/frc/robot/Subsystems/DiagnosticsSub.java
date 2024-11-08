@@ -2,8 +2,10 @@ package frc.robot.Subsystems;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.EncoderConstants;
 import frc.robot.Constants.OutConstants;
 
 //A subsystem that returns diagnostics about the robot.  
@@ -15,8 +17,26 @@ public class DiagnosticsSub extends SubsystemBase {
      */
     BuiltInAccelerometer accel = new BuiltInAccelerometer();
 
+    /*
+     * The two encoders
+     */
+
+     /**
+      * Encoder for the left side of the drivetrain
+      */
+    Encoder leftEncoder = new Encoder(EncoderConstants.kLEncoder1, EncoderConstants.kLEncoder2);
+
+    /**
+     * Encoder for the right side of the drivetrain
+     */
+    Encoder rightEncoder = new Encoder(EncoderConstants.kREncoder1, EncoderConstants.kREncoder2);
+
     //Initializes the subsystem
-    public DiagnosticsSub() {}
+    public DiagnosticsSub() {
+      //Sets the distance per pulse for each encoder in inches.
+      leftEncoder.setDistancePerPulse(EncoderConstants.distancePerPulseIn);
+      rightEncoder.setDistancePerPulse(EncoderConstants.distancePerPulseIn);
+    }
 
     /*
      * The following are acceleration calculations
