@@ -69,6 +69,26 @@ public class Constants {
          */
         public static final double distancePerPulseIn = wheelCircumferenceIn / encoderResolution;
 
+        /**
+         * The first DIO port for the left encoder
+         */
+        public static final int kLEncoder1 = 0;
+
+        /**
+         * The second DIO port for the left encoder
+         */
+        public static final int kLEncoder2 = 1;
+
+        /**
+         * The first DIO port for the right encoder
+         */
+        public static final int kREncoder1 = 2;
+
+        /**
+         * The second DIO port for the right encoder
+         */
+        public static final int kREncoder2 = 3;
+
     }
 
     /**
